@@ -1,19 +1,46 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Security.Cryptography;
+using System.Text;
+using Tools.Security.Cryptage.Symmetric;
+
+string password = "Test1234=";
+
+AesEncryptor aesEncryptor = new AesEncryptor(SymmetricKeySizes.Size192);
 
 
-using BStorm.Tools.Database;
-using Microsoft.Data.SqlClient;
+byte[] key = aesEncryptor.Key;
+byte[] iv = aesEncryptor.Vector;
 
-const string CONNECTION_STRING = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DemoAdvancedSecurity;User Id=AppLogin; Password=Test1234=;Connect Timeout=60;Encrypt=True;Trust Server Certificate=True;";
+byte[] cypher = aesEncryptor.Encrypt(password);
 
-using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
-{
-    connection.Open();
 
-    var result = connection.ExecuteReader("AppSchema.GetValues", dr => new { Id = (int)dr["Id"], Value = (string)dr["Value"] }, true);
+AesEncryptor aesEncryptor2 = new AesEncryptor(key, iv);
+Console.WriteLine(aesEncryptor2.Decrypt(cypher));
 
-    foreach(var item in result)
-    {
-        Console.WriteLine(item);
-    }
-}
+
+
+
+//SymmetricAlgorithm algorithm = null;
+//AsymmetricAlgorithm asymmetricAlgorithm = null;
+
+
+//const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DemoAdvancedSecurity;User Id={0};Password={1};Connect Timeout=60;Encrypt=True;Trust Server Certificate=True;";
+
+//var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+
+//var configuration = builder.Build();
+//string connectionString = configuration.GetConnectionString("default")!;
+
+//Console.WriteLine(connectionString);
+
+//using (SqlConnection connection = new SqlConnection(string.Format(connectionString, Resources.Login, Resources.Password)))
+//{
+//    connection.Open();
+
+//    var result = connection.ExecuteReader("AppSchema.GetValues", dr => new { Id = (int)dr["Id"], Value = (string)dr["Value"] }, true);
+
+//    foreach(var item in result)
+//    {
+//        Console.WriteLine(item);
+//    }
+//}
