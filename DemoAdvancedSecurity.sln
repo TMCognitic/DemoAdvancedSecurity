@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedSecurity", "AdvancedSecurity\AdvancedSecurity.csproj", "{20A29A49-33CE-7F0B-2C93-44E7A865BBD5}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DemoAdvancedSecurity", "DemoAdvancedSecurity\DemoAdvancedSecurity.sqlproj", "{CCB6097E-D33E-4D17-B64C-E5E009F9B5E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20A29A49-33CE-7F0B-2C93-44E7A865BBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A29A49-33CE-7F0B-2C93-44E7A865BBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A29A49-33CE-7F0B-2C93-44E7A865BBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A29A49-33CE-7F0B-2C93-44E7A865BBD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB6097E-D33E-4D17-B64C-E5E009F9B5E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB6097E-D33E-4D17-B64C-E5E009F9B5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB6097E-D33E-4D17-B64C-E5E009F9B5E8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CCB6097E-D33E-4D17-B64C-E5E009F9B5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB6097E-D33E-4D17-B64C-E5E009F9B5E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB6097E-D33E-4D17-B64C-E5E009F9B5E8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69F7E207-787E-4840-9058-C0C25D1AF710}
+	EndGlobalSection
+EndGlobal

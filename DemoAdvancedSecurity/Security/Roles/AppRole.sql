@@ -1,0 +1,5 @@
+﻿CREATE ROLE [AppRole]
+GO
+
+GRANT EXECUTE ON SCHEMA::[AppSchema] To [AppRole]
+GO
