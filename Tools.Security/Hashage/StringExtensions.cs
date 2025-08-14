@@ -9,7 +9,7 @@ namespace Tools.Security.Hashage
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(value, nameof(value));
 
-            byte[] valueAsByteArray = Encoding.Default.GetBytes(value);
+            byte[] valueAsByteArray = Encoding.Unicode.GetBytes(value);
             return SHA512.HashData(valueAsByteArray);
         }
     }
