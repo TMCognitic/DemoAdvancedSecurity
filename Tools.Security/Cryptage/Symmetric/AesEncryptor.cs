@@ -55,7 +55,7 @@ namespace Tools.Security.Cryptage.Symmetric
                 {
                     using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
                     {
-                        using (StreamWriter sw = new StreamWriter(cs, Encoding.Default))
+                        using (StreamWriter sw = new StreamWriter(cs, Encoding.Unicode))
                         {
                             sw.Write(value);
                         }
@@ -77,7 +77,7 @@ namespace Tools.Security.Cryptage.Symmetric
             {
                 using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Read))
                 {
-                    using (StreamReader sw = new StreamReader(cs, Encoding.Default))
+                    using (StreamReader sw = new StreamReader(cs, Encoding.Unicode))
                     {
                         return sw.ReadToEnd();
                     }
