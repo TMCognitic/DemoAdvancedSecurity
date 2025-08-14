@@ -1,11 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Security.Cryptography;
-using System.Text;
 using Tools.Security.Cryptage.Symmetric;
 
 string password = "Test1234=";
 
-AesEncryptor aesEncryptor = new AesEncryptor(SymmetricKeySizes.Size192);
+AesEncryptor aesEncryptor = new AesEncryptor(SymmetricKeySizes.Size256);
 
 
 byte[] key = aesEncryptor.Key;
