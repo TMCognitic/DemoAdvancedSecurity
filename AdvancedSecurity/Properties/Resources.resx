@@ -117,12 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="KeyInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KeyInfo.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>AppLogin</value>
     <comment>Login de connection à la DB</comment>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Test1234=</value>
-    <comment>Mot de passe de la connection DB</comment>
+  <data name="Passwd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\passwd.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

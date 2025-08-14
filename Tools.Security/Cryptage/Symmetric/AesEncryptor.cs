@@ -69,21 +69,22 @@ namespace Tools.Security.Cryptage.Symmetric
         {
             ArgumentNullException.ThrowIfNull(value, nameof(value));
 
-            Aes aes = Aes.Create();
-            aes.Key = Key;
-            aes.IV = Vector;
-
-            using (MemoryStream ms = new MemoryStream(value))
+            using (Aes aes = Aes.Create())
             {
-                using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                aes.Key = Key;
+                aes.IV = Vector;
+
+                using (MemoryStream ms = new MemoryStream(value))
                 {
-                    using (StreamReader sw = new StreamReader(cs, Encoding.Unicode))
+                    using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Read))
                     {
-                        return sw.ReadToEnd();
+                        using (StreamReader sr = new StreamReader(cs, Encoding.Unicode))
+                        {
+                            return sr.ReadToEnd();
+                        }
                     }
                 }
             }
         }
-
     }
 }

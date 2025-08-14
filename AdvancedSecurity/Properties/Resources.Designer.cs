@@ -61,6 +61,16 @@ namespace AdvancedSecurity.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] KeyInfo {
+            get {
+                object obj = ResourceManager.GetObject("KeyInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à AppLogin.
         /// </summary>
         internal static string Login {
@@ -70,11 +80,12 @@ namespace AdvancedSecurity.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Test1234=.
+        ///   Recherche une ressource localisée de type System.Byte[].
         /// </summary>
-        internal static string Password {
+        internal static byte[] Passwd {
             get {
-                return ResourceManager.GetString("Password", resourceCulture);
+                object obj = ResourceManager.GetObject("Passwd", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
