@@ -9,9 +9,6 @@ using System.Text;
 using System.Text.Json;
 using Tools.Security.Cryptage.Symmetric;
 
-string password = "Test1234=";
-
-
 //Le Hash SHA512 est le même que SHA2_512 En Sql
 //using (SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DemoAdvancedSecurity;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;"))
 //{
@@ -25,21 +22,21 @@ string password = "Test1234=";
 
 //AesEncryptor aesEncryptor = new AesEncryptor();
 //byte[] key = aesEncryptor.Key;
-//byte[] iv = aesEncryptor.Vector;
+//byte[] iv = aesEncryptor.IV;
 
 //byte[] cypher = aesEncryptor.Encrypt(password);
 
 //File.WriteAllBytes("passwd.bin", cypher);
 
-//string json = JsonSerializer.Serialize(new { Key = key, Vector = iv }, new JsonSerializerOptions() { WriteIndented = true });
+//string json = JsonSerializer.Serialize(new { Key = key, IV = iv }, new JsonSerializerOptions() { WriteIndented = true });
 //File.WriteAllBytes("KeyInfo.bin", Encoding.Unicode.GetBytes(json));
 
 
-byte[] KeyInfo = Resources.KeyInfo;
+byte[] KeyInfo = Resources.Keys;
 string json = Encoding.Unicode.GetString(KeyInfo);
 KeyInfo keyInfo = JsonSerializer.Deserialize<KeyInfo>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true })!;
 
-AesEncryptor aesEncryptor2 = new AesEncryptor(keyInfo.Key, keyInfo.Vector);
+AesEncryptor aesEncryptor2 = new AesEncryptor(keyInfo.Key, keyInfo.IV);
 byte[] cypher = Resources.Passwd;
 string passwd = aesEncryptor2.Decrypt(cypher);
 Console.WriteLine(passwd);

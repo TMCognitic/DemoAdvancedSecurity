@@ -8,13 +8,13 @@ namespace AdvancedSecurity
 {
     public class KeyInfo
     {
-        public KeyInfo(byte[] key, byte[] vector)
+        public KeyInfo(byte[] key, byte[] iv)
         {
             Key = key;
-            Vector = vector;
+            IV = iv;
         }
 
         public byte[] Key { get; }
-        public byte[] Vector { get; }
+        public byte[] IV { get; }
     }
 }

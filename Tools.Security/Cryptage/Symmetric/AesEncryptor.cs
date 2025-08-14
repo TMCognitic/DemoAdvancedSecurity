@@ -6,7 +6,7 @@ namespace Tools.Security.Cryptage.Symmetric
     public class AesEncryptor
     {
         private readonly byte[] _key;
-        private readonly byte[] _vector;
+        private readonly byte[] _iv;
 
         public byte[] Key
         {
@@ -16,11 +16,11 @@ namespace Tools.Security.Cryptage.Symmetric
             }
         }
 
-        public byte[] Vector
+        public byte[] IV
         {
             get
             {
-                return _vector;
+                return _iv;
             }
         }
 
@@ -33,13 +33,13 @@ namespace Tools.Security.Cryptage.Symmetric
             aes.GenerateIV();
 
             _key = aes.Key;
-            _vector = aes.IV;
+            _iv = aes.IV;
         }
 
         public AesEncryptor(byte[] key, byte[] vector)
         {
             _key = key;
-            _vector = vector;
+            _iv = vector;
         }
 
         public byte[] Encrypt(string value)
@@ -49,7 +49,7 @@ namespace Tools.Security.Cryptage.Symmetric
             using(Aes aes = Aes.Create())
             {
                 aes.Key = Key;
-                aes.IV = Vector;
+                aes.IV = IV;
 
                 using (MemoryStream ms = new MemoryStream())
                 {
@@ -72,7 +72,7 @@ namespace Tools.Security.Cryptage.Symmetric
             using (Aes aes = Aes.Create())
             {
                 aes.Key = Key;
-                aes.IV = Vector;
+                aes.IV = IV;
 
                 using (MemoryStream ms = new MemoryStream(value))
                 {

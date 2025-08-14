@@ -63,9 +63,9 @@ namespace AdvancedSecurity.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Byte[].
         /// </summary>
-        internal static byte[] KeyInfo {
+        internal static byte[] Keys {
             get {
-                object obj = ResourceManager.GetObject("KeyInfo", resourceCulture);
+                object obj = ResourceManager.GetObject("Keys", resourceCulture);
                 return ((byte[])(obj));
             }
         }
